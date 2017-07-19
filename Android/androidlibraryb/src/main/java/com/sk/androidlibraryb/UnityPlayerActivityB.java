@@ -21,6 +21,8 @@ public class UnityPlayerActivityB extends Activity {
 
     public static final String INTENT_EXTRA_RETURN_INTENT = "EXTRA_RETURN_INTENT";
 
+    public static Activity currentActivity;
+
     protected UnityPlayer mUnityPlayer; // don't change the name of this variable; referenced from native code
 
     private CustomContextWrapper customContext;
@@ -30,6 +32,8 @@ public class UnityPlayerActivityB extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
+
+        currentActivity = this;
 
         getWindow().setFormat(PixelFormat.RGBX_8888); // <--- This makes xperia play happy
 
