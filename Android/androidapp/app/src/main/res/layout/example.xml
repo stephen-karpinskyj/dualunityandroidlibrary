@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              tools:context="com.sk.androidapp.MainActivity">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:shrinkColumns="*"
+        android:stretchColumns="*">
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/libraryAButton"
+                android:layout_width="340dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:onClick="onEnterUnityAButtonClick"
+                android:text="Enter Unity A"
+                android:textSize="12sp"/>
+
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/libraryBButton"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:onClick="onEnterUnityBButtonClick"
+                android:text="Enter Unity B"
+                android:textSize="12sp"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+</LinearLayout>
