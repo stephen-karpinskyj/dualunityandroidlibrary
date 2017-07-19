@@ -31,6 +31,9 @@ public class UnityPlayerActivityA extends Activity {
 
         getWindow().setFormat(PixelFormat.RGBX_8888); // <--- This makes xperia play happy
 
+        
+        UnityPlayer a = new UnityPlayer(this);
+        
         mUnityPlayer = new UnityPlayer(this);
         setContentView(mUnityPlayer);
         mUnityPlayer.requestFocus();

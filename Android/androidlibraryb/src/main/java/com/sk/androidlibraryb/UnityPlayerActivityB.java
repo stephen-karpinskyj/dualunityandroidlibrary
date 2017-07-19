@@ -23,6 +23,8 @@ public class UnityPlayerActivityB extends Activity {
 
     protected UnityPlayer mUnityPlayer; // don't change the name of this variable; referenced from native code
 
+    private CustomContextWrapper customContext;
+
     // Setup activity layout
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,9 @@ public class UnityPlayerActivityB extends Activity {
 
         getWindow().setFormat(PixelFormat.RGBX_8888); // <--- This makes xperia play happy
 
-        mUnityPlayer = new UnityPlayer(this);
+        customContext = new CustomContextWrapper(this, "/data/app/com.sk.unityprojectb-1/base.apk"); // HACK: Hard-coded apk with Unity data
+
+        mUnityPlayer = new UnityPlayer(customContext); // Override context
         setContentView(mUnityPlayer);
         mUnityPlayer.requestFocus();
 
