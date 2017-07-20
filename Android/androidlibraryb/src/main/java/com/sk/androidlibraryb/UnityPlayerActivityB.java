@@ -12,6 +12,8 @@ import android.view.Window;
 
 import com.unity3d.player.UnityPlayer;
 
+import java.io.File;
+
 /**
  * Created by stephenkarpinskyj on 15/02/17.
  */
@@ -19,9 +21,11 @@ import com.unity3d.player.UnityPlayer;
 public class UnityPlayerActivityB extends Activity {
     private static final String TAG = "UnityPlayerActivityB";
 
+    public static final String APK_PATH = "UnityProjectB.apk";
+    public static final String INTENT_EXTRA_CONTENT_ROOT = "EXTRA_CONTENT_ROOT";
     public static final String INTENT_EXTRA_RETURN_INTENT = "EXTRA_RETURN_INTENT";
 
-    public static Activity currentActivity;
+    public static Activity currentActivity; // Accessed by Unity script
 
     protected UnityPlayer mUnityPlayer; // don't change the name of this variable; referenced from native code
 
@@ -37,7 +41,10 @@ public class UnityPlayerActivityB extends Activity {
 
         getWindow().setFormat(PixelFormat.RGBX_8888); // <--- This makes xperia play happy
 
-        customContext = new CustomContextWrapper(this, "/data/app/com.sk.unityprojectb-1/base.apk"); // HACK: Hard-coded apk with Unity data
+        String contentRoot = getIntent().getStringExtra(INTENT_EXTRA_CONTENT_ROOT);
+        File apkFile = new File(contentRoot, APK_PATH);
+
+        customContext = new CustomContextWrapper(this, apkFile.getAbsolutePath()); // HACK: Hard-coded apk with Unity data in content folder
 
         mUnityPlayer = new UnityPlayer(customContext); // Override context
         setContentView(mUnityPlayer);

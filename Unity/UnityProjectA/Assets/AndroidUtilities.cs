@@ -4,7 +4,7 @@ public static class AndroidUtilities
 {
     public static void InvokeNativeMethod(string methodName, params object[] args)
     {
-        const string PLAYER_NAME = "com.unity3d.player.UnityPlayer";
+        const string PLAYER_NAME = "com.sk.androidlibrarya.UnityPlayerActivityA";
 
         Debug.Log("[Android] Calling native method=" + methodName + " on player=" + PLAYER_NAME);
 
@@ -19,7 +19,7 @@ public static class AndroidUtilities
 
     public static T InvokeNativeMethod<T>(string methodName, params object[] args)
     {
-        const string PLAYER_NAME = "com.unity3d.player.UnityPlayer";
+        const string PLAYER_NAME = "com.sk.androidlibrarya.UnityPlayerActivityA";
 
         Debug.Log("[Android] Calling native method=" + methodName + " on player=" + PLAYER_NAME);
 
